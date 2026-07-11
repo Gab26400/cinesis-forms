@@ -8,7 +8,6 @@
 
     <title>Questionnaire de satisfaction à chaud</title>
 
-    <!-- Police Parkinsans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -21,26 +20,91 @@
 
 <body>
 
-    <div class="background"></div>
+<div class="background"></div>
 
-    <!--
-    ============================================================
-        Toute l'application sera générée ici.
-        Ainsi nous pourrons facilement ajouter :
-            - Satisfaction à chaud
-            - Pré-formation
-            - Evaluation à froid
-            - Administration
-    ============================================================
-    -->
+<main class="container">
 
-    <main id="app"></main>
+    <div class="card fade">
 
-    <!-- Données -->
-    <script src="js/questions.js"></script>
+        <img src="assets/logo.jpeg" alt="Cinesis" class="logo">
 
-    <!-- Moteur -->
-    <script src="js/app.js"></script>
+        <h2>Questionnaire de satisfaction à chaud</h2>
+
+        <div class="formation">
+
+            <p><strong>Formation</strong></p>
+            <span>Préventeur Santé</span>
+
+            <p><strong>Session</strong></p>
+            <span>17 & 18 septembre 2026 – Paris</span>
+
+        </div>
+
+        <div class="info">
+
+            <p>
+                Votre avis est précieux pour améliorer la qualité de nos formations.
+            </p>
+
+            <p>
+                Ce questionnaire est entièrement <strong>anonyme</strong>.
+            </p>
+
+            <p>
+                Temps estimé : <strong>3 minutes</strong>
+            </p>
+
+        </div>
+
+        <div class="likert">
+
+            <h3>Échelle d'évaluation</h3>
+
+            <div class="scale">
+
+                <div>
+                    <span class="emoji">😞</span>
+                    <strong>1</strong>
+                    <small>Pas du tout satisfait</small>
+                </div>
+
+                <div>
+                    <span class="emoji">🙁</span>
+                    <strong>2</strong>
+                    <small>Peu satisfait</small>
+                </div>
+
+                <div>
+                    <span class="emoji">🙂</span>
+                    <strong>3</strong>
+                    <small>Satisfait</small>
+                </div>
+
+                <div>
+                    <span class="emoji">😊</span>
+                    <strong>4</strong>
+                    <small>Très satisfait</small>
+                </div>
+
+                <div>
+                    <span class="emoji">🤩</span>
+                    <strong>5</strong>
+                    <small>Tout à fait satisfait</small>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button id="startButton">
+            Commencer le questionnaire
+        </button>
+
+    </div>
+
+</main>
+
+<script src="js/app.js"></script>
 
 </body>
 

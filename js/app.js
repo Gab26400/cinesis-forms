@@ -99,7 +99,7 @@ function afficherProfession() {
             id="profession"
             class="text-input"
             type="text"
-            placeholder="Ex : MK, Ergonome, Podologue..."
+            placeholder="Ex : Ergonome, Infirmier, Responsable HSE..."
         >
 
         <button id="nextButton">
