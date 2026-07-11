@@ -1,6 +1,6 @@
 /* ==========================================================
    CINESIS FORMS
-   Version : 0.5.0
+   Version : 0.5.1
    Fichier : app.js
 ========================================================== */
 
@@ -15,6 +15,7 @@ let questions = [];
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
     questions = questionnaire.questions;
 
 
@@ -22,35 +23,47 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("startButton")
     ?.addEventListener("click", lancerQuestionnaire);
 
+
+
 });
+
 
 
 
 
 function lancerQuestionnaire(){
 
+
     const card=document.querySelector(".card");
+
 
     card.classList.add("fade-out");
 
 
     setTimeout(()=>{
 
+
         afficherProfession();
 
+
     },300);
+
 
 }
 
 
 
 
+
+
 function afficherProfession(){
+
 
     const card=document.querySelector(".card");
 
 
     card.classList.remove("fade-out");
+
 
 
     card.innerHTML=`
@@ -62,6 +75,7 @@ function afficherProfession(){
     </div>
 
 
+
     <div class="question-counter">
 
         Étape 1 / ${questions.length+1}
@@ -69,14 +83,21 @@ function afficherProfession(){
     </div>
 
 
+
     <h2>Votre profession</h2>
 
 
+
     <input
+
     id="profession"
+
     class="text-input"
+
     placeholder="${questionnaire.professionPlaceholder}"
+
     >
+
 
 
     <button id="nextButton">
@@ -85,7 +106,9 @@ function afficherProfession(){
 
     </button>
 
+
     `;
+
 
 
 
@@ -95,7 +118,12 @@ function afficherProfession(){
 
 
         reponses.profession =
-        document.getElementById("profession").value.trim();
+
+        document
+        .getElementById("profession")
+        .value
+        .trim();
+
 
 
         afficherQuestion();
@@ -110,16 +138,22 @@ function afficherProfession(){
 
 
 
+
+
 function afficherQuestion(){
 
 
     if(etape >= questions.length){
 
+
         envoyerReponses();
+
 
         afficherFin();
 
+
         return;
+
 
     }
 
@@ -133,6 +167,7 @@ function afficherQuestion(){
 
 
     let html = `
+
 
 
     <div class="progress">
@@ -170,6 +205,8 @@ function afficherQuestion(){
 
 
 
+
+
     if(question.type==="likert"){
 
 
@@ -186,8 +223,7 @@ function afficherQuestion(){
 
             html+=`
 
-            <div class="carte-reponse 
-            ${reponses[question.id]==index+1 ? "selection":""}"
+            <div class="carte-reponse"
 
             data-value="${index+1}">
 
@@ -228,6 +264,7 @@ function afficherQuestion(){
         </div>
 
 
+
         <button id="previousButton">
 
             Précédent
@@ -236,12 +273,12 @@ function afficherQuestion(){
 
 
 
-        <button id="nextButton"
-        ${reponses[question.id] ? "" : "disabled"}>
+        <button id="nextButton" disabled>
 
             Continuer
 
         </button>
+
 
         `;
 
@@ -258,10 +295,14 @@ function afficherQuestion(){
         html+=`
 
         <textarea
+
         id="textAnswer"
+
         class="text-input"
-        rows="5"
-        >${reponses[question.id] || ""}</textarea>
+
+        rows="5">
+
+        </textarea>
 
 
 
@@ -279,12 +320,11 @@ function afficherQuestion(){
 
         </button>
 
+
         `;
 
 
     }
-
-
 
 
 
@@ -300,11 +340,15 @@ function afficherQuestion(){
 
         if(etape>0){
 
+
             etape--;
+
 
             afficherQuestion();
 
+
         }
+
 
     };
 
@@ -313,10 +357,11 @@ function afficherQuestion(){
 
     if(question.type==="likert"){
 
+
         activerCartes(question);
 
-    }
 
+    }
 
 
 
@@ -329,7 +374,11 @@ function afficherQuestion(){
 
 
             reponses[question.id] =
-            document.getElementById("textAnswer").value;
+
+            document
+            .getElementById("textAnswer")
+            .value;
+
 
 
             etape++;
@@ -340,8 +389,8 @@ function afficherQuestion(){
 
         };
 
-    }
 
+    }
 
 
 }
@@ -351,7 +400,9 @@ function afficherQuestion(){
 
 
 
+
 function activerCartes(question){
+
 
 
     const cartes =
@@ -376,20 +427,25 @@ function activerCartes(question){
             });
 
 
+
             carte.classList.add("selection");
+
 
 
             reponses[question.id] =
             carte.dataset.value;
 
 
+
             bouton.disabled=false;
+
 
 
         };
 
 
     });
+
 
 
 
@@ -405,7 +461,10 @@ function activerCartes(question){
     };
 
 
+
 }
+
+
 
 
 
@@ -418,13 +477,31 @@ function envoyerReponses(){
     const donnees = {
 
 
-        formation: questionnaire.formation,
+
+        formation:
+        configuration.session.formation
+        ||
+        questionnaire.formation,
 
 
-        session: questionnaire.session,
+
+        session:
+        configuration.session.date
+        ||
+        questionnaire.session,
 
 
-        profession: reponses.profession || "",
+
+        lieu:
+        configuration.session.lieu
+        ||
+        "",
+
+
+
+        profession:
+        reponses.profession || "",
+
 
 
         q1: reponses[1] || "",
@@ -450,7 +527,9 @@ function envoyerReponses(){
         q11: reponses[11] || ""
 
 
+
     };
+
 
 
 
@@ -471,14 +550,18 @@ function envoyerReponses(){
 
     })
 
-    .catch((erreur)=>{
+    .catch(erreur=>{
 
-        console.log("Erreur envoi :", erreur);
+
+        console.log("Erreur :",erreur);
+
 
     });
 
 
+
 }
+
 
 
 
@@ -490,6 +573,7 @@ function afficherFin(){
 
 
     const card=document.querySelector(".card");
+
 
 
     card.innerHTML=`
@@ -505,9 +589,6 @@ function afficherFin(){
 
 
     `;
-
-
-    console.log(reponses);
 
 
 }
