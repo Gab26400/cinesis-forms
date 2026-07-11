@@ -514,3 +514,89 @@ button:hover{
     }
 
 }
+/*========================
+ Cartes de réponse questionnaire
+=========================*/
+
+.choix{
+
+    margin-top:30px;
+
+}
+
+
+.carte-reponse{
+
+    background:white;
+
+    border:2px solid var(--border);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+
+.carte-reponse:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+.carte-reponse.selection{
+
+    border-color:var(--primary);
+
+    background:#eef5ff;
+
+    transform:translateY(-3px);
+
+}
+
+
+.carte-reponse .emoji{
+
+    font-size:2rem;
+
+}
+
+
+button:disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+
+.question-description{
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+    margin-bottom:25px;
+
+}
+
+
+textarea.text-input{
+
+    resize:vertical;
+
+}
