@@ -18,7 +18,7 @@ const questionnaire = {
     session: "17 & 18 septembre 2026 - Paris",
 
     professionPlaceholder:
-        "Ex : Aide-soignant, Ergonome, Infirmier SST, Responsable HSE...",
+        "",
 
     echelle: [
 
