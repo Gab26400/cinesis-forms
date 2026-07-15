@@ -27,15 +27,15 @@ const questionnaire = {
 
             type:"choix",
 
-            titre:"La mise en place d'actions de prévention et d'amélioration des conditions de travail est une obligation de l’employeur ?",
+            titre:" Qu'est-ce qu'un risque psychosocial (RPS) ?",
 
             description:"",
 
-            reponseA:"Vrai",
+            reponseA:"Un risque uniquement lié au stress individuel",
 
-            reponseB:"Faux",
+            reponseB:"Un risque pouvant affecter la santé mentale, physique et sociale des salariés en raison de leurs conditions de travail.",
 
-            reponseC:"Je ne sais pas"
+            reponseC:"Un Risque Physique pour la Santé"
 
         },
 
@@ -47,15 +47,15 @@ const questionnaire = {
 
             type:"choix",
 
-            titre:"Les TMS représente quasiment 90 % des maladies professionnelles reconnues par l’Assurance Maladie ?",
+            titre:"Quelle est l'obligation principale de l'employeur concernant les RPS ? (choisissez la meilleure réponse)",
 
             description:"",
 
-            reponseA:"Vrai",
+            reponseA:"Attendre qu'un représentant du personnel signale un problème pour agir",
 
-            reponseB:"Faux",
+            reponseB:"Prévenir les risques en mettant en oeuvre des actions adaptées",
 
-            reponseC:"Je ne sais pas"
+            reponseC:"Confier exclusivement la prévention au service des ressources humaines"
 
         },
 
@@ -65,7 +65,7 @@ const questionnaire = {
 
             type:"texte",
 
-            titre:"Citez 3 acteurs (internes ou externes à l'entreprise) impliqués dans la prévention des risques professionnels.",
+            titre:"Citez 3 impacts possible des RPS sur les salariés et/ou sur l'organisation ?",
 
             description:"",
 
@@ -77,11 +77,17 @@ const questionnaire = {
 
             id:4,
 
-            type:"texte",
+            type:"choix",
 
-            titre:"Donnez 2 exemples applicables en entreprise d'habitudes permettant de réduire la sédentarité tout en s’intégrant facilement dans le quotidien.",
+            titre:"Les risques psychosociaux doivent ils être identifiés dans le DUERP ?",
 
             description:"",
+
+            reponseA:"Oui",
+
+            reponseB:"Cela dépend de la taille de l'entreprise",
+
+            reponseC:"Non, ils sont identifiés mais uniquement dans un autre registre"
 
             
 
@@ -96,7 +102,7 @@ const questionnaire = {
 
             type:"texte",
 
-            titre:"Que signifie l'acronyme IPRP ?",
+            titre:"Proposez 2 actions à mettre en place pour identifier et/ou prévenir les risques psychosociaux ?",
 
             description:""
 
